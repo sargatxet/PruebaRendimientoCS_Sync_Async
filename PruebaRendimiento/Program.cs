@@ -29,12 +29,12 @@ Stopwatch stopwatch = new Stopwatch();
 
 stopwatch.Start();
 Random random = new Random();
-int veces = 50000;
+int veces = 20000;
 for (int i = 0; i < veces; i++)
 {
     int parameter = random.Next(1, 100);
     int result = Calculate(parameter, veces);
-    Console.WriteLine($"Result {i + 1}: {result}");
+    Console.WriteLine($"Sync {i + 1}: {result}");
 }
 stopwatch.Stop();
 long sincrono = stopwatch.ElapsedMilliseconds;
@@ -47,7 +47,7 @@ for (int i = 0; i < veces; i++)
 {
     int parameter = random.Next(1, 100);
     Task<int> resultTask = CalculateAsync(parameter, veces);
-    Console.WriteLine($"Result {i + 1}: {await resultTask}");
+    Console.WriteLine($"Async {i + 1}: {await resultTask}");
 }
 stopwatch.Stop();
 long asincrono = stopwatch.ElapsedMilliseconds;
